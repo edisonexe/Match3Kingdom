@@ -1,4 +1,5 @@
 ﻿using Game.Board;
+using Game.Utils;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -14,6 +15,7 @@ namespace DI
         {
             builder.Register<Grid>(Lifetime.Singleton);
             builder.RegisterInstance(_gameBoard);
+            builder.Register<SetupCamera>(Lifetime.Singleton);
         }
     }
 }
