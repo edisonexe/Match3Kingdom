@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Game.GridSystem;
 using Game.Tiles;
 using Game.Utils;
+using Level;
 using UnityEngine;
 using VContainer;
 using Grid = Game.GridSystem.Grid;
@@ -11,6 +11,7 @@ namespace Game.Board
 {
     public class GameBoard : MonoBehaviour
     {
+        [SerializeField] private LevelConfig  _levelConfig;
         [SerializeField] private bool _isDebugging;
         [SerializeField] private TileConfig _tileConfig;
         private readonly List<Tile> _tilesToRefill = new List<Tile>();
@@ -24,8 +25,8 @@ namespace Game.Board
 
         private void Start()
         {
-            _grid.SetupGrid(10, 10);
-            _blankTilesSetup.SetupBlanks(_grid.Width, _grid.Height);
+            _grid.SetupGrid(_levelConfig.Width, _levelConfig.Height);
+            _blankTilesSetup.SetupBlanks(_levelConfig);
             CreateBoard();
             _setupCamera.SetCamera(_grid.Width, _grid.Height, false);
             if (_isDebugging)
