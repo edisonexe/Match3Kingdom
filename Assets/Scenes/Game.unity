@@ -180,7 +180,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -377,6 +377,52 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &663093768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 663093770}
+  - component: {fileID: 663093769}
+  m_Layer: 0
+  m_Name: GameSytemScripts
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &663093769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663093768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e23e99fd3c234b878141b73ed63b6c61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tilePrefab: {fileID: 8566624406181325886, guid: 715bb8d465679484d97751d34381631f, type: 3}
+  _tileSetConfig: {fileID: 11400000, guid: bbcca3d25e5b30441aa411161e3631da, type: 2}
+--- !u!4 &663093770
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663093768}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,7 +501,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c535885413e4d25b22f1cc7fe185398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tilePrefab: {fileID: 8566624406181325886, guid: 715bb8d465679484d97751d34381631f, type: 3}
   _tileConfig: {fileID: 11400000, guid: 3a2aba8784c97a64a9299b12ee4f985c, type: 2}
 --- !u!4 &1174021368
 Transform:
@@ -506,7 +551,9 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects:
   - {fileID: 1174021366}
+  - {fileID: 663093768}
   _gameBoard: {fileID: 1174021367}
+  _loader: {fileID: 663093769}
 --- !u!4 &1620420588
 Transform:
   m_ObjectHideFlags: 0
@@ -531,3 +578,4 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 1620420588}
   - {fileID: 1174021368}
+  - {fileID: 663093770}

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d85d19a63e84f6986322f582e68a9ee, type: 3}
+  m_Name: Kingdom
+  m_EditorClassIdentifier: 
+  _set:
+  - {fileID: 11400000, guid: 13a71d803c6fb10449e95dc5e04e9a2f, type: 2}
+  - {fileID: 11400000, guid: 3a2aba8784c97a64a9299b12ee4f985c, type: 2}
+  - {fileID: 11400000, guid: eea6ec7caca401b4f85c9c753819ec87, type: 2}
+  - {fileID: 11400000, guid: a9b10be712473a44fb9a84159b6df2f3, type: 2}
+  - {fileID: 11400000, guid: e2f53fff10b49874caaf09b8e8dfd4a1, type: 2}
