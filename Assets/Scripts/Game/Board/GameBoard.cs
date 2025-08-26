@@ -17,6 +17,7 @@ namespace Game.Board
         
         private Grid _grid;
         private TilePool _tilePool;
+        private BlankTilesSetup _blankTilesSetup;
         private SetupCamera _setupCamera;
         private GameDebug _gameDebug;
 
@@ -24,6 +25,7 @@ namespace Game.Board
         private void Start()
         {
             _grid.SetupGrid(10, 10);
+            _blankTilesSetup.SetupBlanks(_grid.Width, _grid.Height);
             CreateBoard();
             _setupCamera.SetCamera(_grid.Width, _grid.Height, false);
             if (_isDebugging)
@@ -41,22 +43,31 @@ namespace Game.Board
             {
                 for (int y = 0; y < _grid.Height; y++)
                 {
-                    if(_grid.GetValue(x,y)) continue;
-                    var tile = _tilePool.GetTile(_grid.GridToWorld(x, y), transform);
-                    _grid.SetValue(x, y, tile);
-                    tile.gameObject.SetActive(true);
-                    _tilesToRefill.Add(tile);
+                    if (_blankTilesSetup.Blanks[x, y])
+                    {
+                        if(_grid.GetValue(x,y)) continue;
+                        var blankTile = _tilePool.CreateBlankTile(_grid.GridToWorld(x, y), transform);
+                        _grid.SetValue(x,y, blankTile);
+                    }
+                    else
+                    {
+                        var tile = _tilePool.GetTile(_grid.GridToWorld(x, y), transform);
+                        _grid.SetValue(x, y, tile);
+                        tile.gameObject.SetActive(true);
+                        _tilesToRefill.Add(tile);
+                    }
                 }
             }
         }
         
         
-        [Inject] private void Construct(Grid grid, SetupCamera setupCamera, TilePool pool, GameDebug gameDebug)
+        [Inject] private void Construct(Grid grid, SetupCamera setupCamera, TilePool pool, GameDebug gameDebug, BlankTilesSetup blankTilesSetup)
         {
             _grid = grid;
             _setupCamera = setupCamera;
             _tilePool = pool;
             _gameDebug = gameDebug;
+            _blankTilesSetup = blankTilesSetup;
         }
     }
 }
