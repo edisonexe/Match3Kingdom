@@ -26,13 +26,12 @@ namespace Game.Board
 
         private InputReader _reader;
 
-        private void Start()
+        private void Awake()
         {
             _reader = new InputReader();
             _reader.EnableInputs(true);
             _grid.SetupGrid(_levelConfig.Width, _levelConfig.Height);
             _blankTilesSetup.SetupBlanks(_levelConfig);
-            CreateBoard();
             _setupCamera.SetCamera(_grid.Width, _grid.Height, false);
             if (_isDebugging)
                 _gameDebug.ShowDebug(transform);
