@@ -550,7 +550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelConfig: {fileID: 11400000, guid: ccefc3ae90766ea43a4ccee2a35f1ae4, type: 2}
-  _isDebugging: 0
+  _isDebugging: 1
   _tileConfig: {fileID: 11400000, guid: 3a2aba8784c97a64a9299b12ee4f985c, type: 2}
 --- !u!4 &1174021368
 Transform:

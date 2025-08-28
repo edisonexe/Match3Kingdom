@@ -11,7 +11,7 @@ namespace GameStateMachine.States
     {
         private readonly Vector2Int _emptyPosition = Vector2Int.one * -1;
         private readonly InputReader  _inputReader;
-        private readonly Game.GridSystem.Grid _grid;
+        private readonly Grid _grid;
         private readonly IStateSwitcher _stateSwitcher;
         private readonly Camera _camera;
         private IAnimation _animation;
@@ -39,7 +39,6 @@ namespace GameStateMachine.States
         private void OnTileClick()
         {
             var clickPosition = _grid.WorldToGrid(_camera.ScreenToWorldPoint(_inputReader.Position()));
-            Debug.Log(clickPosition);
             if (IsValidPosition(clickPosition) == false || IsBlankPosition(clickPosition))
                 return;
             if (_grid.CurrentPosition == _emptyPosition)
@@ -58,8 +57,7 @@ namespace GameStateMachine.States
             {
                 _grid.SetTargetPosition(clickPosition);
                 _animation.AnimateTile(_grid.GetValue(_grid.CurrentPosition.x, _grid.CurrentPosition.y), 1f);
-                Debug.Log("Swap");
-                // _stateSwitcher.SwitchState<SwapTilesState>();
+                _stateSwitcher.SwitchState<SwapTilesState>();
             }
         }
 

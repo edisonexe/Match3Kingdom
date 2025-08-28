@@ -45,10 +45,16 @@ namespace Animations
             tile.transform.DOScale(value, 0.3f).SetEase(Ease.OutCubic);
         }
 
-        public void MoveTile(Tile tile, Vector3 position, Ease ease)
+        // public void MoveTile(Tile tile, Vector3 position, Ease ease)
+        // {
+        //     tile.transform.DOLocalMove(position, 0.2f).SetEase(ease);
+        // }
+        
+        public void MoveTile(Tile tile, Vector3 worldPosition, Ease ease)
         {
-            tile.transform.DOLocalMove(position, 0.2f).SetEase(ease);
+            tile.transform.DOMove(worldPosition, 0.2f).SetEase(ease);
         }
+
 
         public void Dispose()
         {
