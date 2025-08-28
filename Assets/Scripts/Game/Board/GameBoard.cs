@@ -24,14 +24,10 @@ namespace Game.Board
         private BlankTilesSetup _blankTilesSetup;
         private SetupCamera _setupCamera;
         private GameDebug _gameDebug;
-
-        private InputReader _reader;
         private IAnimation _animation;
 
         private void Awake()
         {
-            _reader = new InputReader();
-            _reader.EnableInputs(true);
             _grid.SetupGrid(_levelConfig.Width, _levelConfig.Height);
             _blankTilesSetup.SetupBlanks(_levelConfig);
             _setupCamera.SetCamera(_grid.Width, _grid.Height, false);
