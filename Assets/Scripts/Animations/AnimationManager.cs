@@ -11,7 +11,6 @@ namespace Animations
     {
         private CancellationTokenSource _cts;
         
-        
         public async UniTask Reveal(GameObject target, float delay)
         {
             _cts = new CancellationTokenSource();
@@ -19,7 +18,7 @@ namespace Animations
             await target.transform.DOScale(Vector3.one, delay).SetEase(Ease.OutBounce);
             _cts.Cancel();
         }
-
+        
         public async UniTask HideTile(GameObject target)
         {
             _cts = new CancellationTokenSource();
@@ -29,7 +28,7 @@ namespace Animations
             await UniTask.Delay(TimeSpan.FromSeconds(0.05f), _cts.IsCancellationRequested);
             _cts.Cancel();
         }
-
+        
         public void DoPunchAnimate(GameObject target, Vector3 scale, float duration)
         {
             target.transform.DOPunchScale(scale, duration, 1, 0.5f);
@@ -44,21 +43,12 @@ namespace Animations
         {
             tile.transform.DOScale(value, 0.3f).SetEase(Ease.OutCubic);
         }
-
-        // public void MoveTile(Tile tile, Vector3 position, Ease ease)
-        // {
-        //     tile.transform.DOLocalMove(position, 0.2f).SetEase(ease);
-        // }
         
         public void MoveTile(Tile tile, Vector3 worldPosition, Ease ease)
         {
             tile.transform.DOMove(worldPosition, 0.2f).SetEase(ease);
         }
-
-
-        public void Dispose()
-        {
-            _cts?.Dispose();
-        }
+        
+        public void Dispose() => _cts?.Dispose();
     }
 }
