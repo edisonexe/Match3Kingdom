@@ -1,6 +1,7 @@
 ﻿using Animations;
 using Game.Board;
 using Game.MatchTiles;
+using Game.Tiles;
 using UnityEngine;
 using GameStateMachine;
 using VContainer;
@@ -15,16 +16,19 @@ namespace EntryPoint
         private Grid _grid;
         private IAnimation _animation;
         private MatchFinder _matchFinder;
+        private TilePool _tilePool;
+        
         private void Start()
         {
-            _stateMachine = new StateMachine(_gameBoard, _grid, _animation, _matchFinder);
+            _stateMachine = new StateMachine(_gameBoard, _grid, _animation, _matchFinder, _tilePool);
         }
 
-        [Inject] private void Construct(Grid grid, IAnimation animation, MatchFinder matchFinder)
+        [Inject] private void Construct(Grid grid, IAnimation animation, MatchFinder matchFinder,  TilePool tilePool)
         {
             _grid  = grid;
             _animation = animation;
             _matchFinder = matchFinder;
+            _tilePool = tilePool;
         }
     }
 }
