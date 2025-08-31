@@ -12,21 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
   m_Name: MainGroup
   m_EditorClassIdentifier: 
-  m_GroupName: Default Local Group
+  m_GroupName: MainGroup
   m_GUID: f897753cb47c6f4469f2478cf25cb662
   m_SerializeEntries:
   - m_GUID: 5faf982ef92be4143a672db950cc6247
-    m_Address: Assets/Scenes/Menu.unity
+    m_Address: Menu
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99c9720ab356a0642a771bea13969a05
-    m_Address: Assets/Scenes/Game.unity
+    m_Address: Game
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ccb8dd0b16d272e4f85763803274e0db
+    m_Address: LoadingScreen
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d4de738de1ed57446adef11e8d8614b3
-    m_Address: Assets/Scenes/Boot.unity
+    m_Address: Boot
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
