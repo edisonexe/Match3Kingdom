@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _blankTilesLayout:
   - xPosition: 0
-    yPosition: 0
+    yPosition: 2
   - xPosition: 0
-    yPosition: 7
-  - xPosition: 7
-    yPosition: 0
-  - xPosition: 7
-    yPosition: 7
-  _width: 8
-  _height: 8
-  _goalScore: 1000
-  _maxMoves: 10
-  _levelNumber: 1
+    yPosition: 3
+  - xPosition: 1
+    yPosition: 2
+  - xPosition: 1
+    yPosition: 3
+  _width: 7
+  _height: 7
+  _goalScore: 1500
+  _maxMoves: 12
+  _levelNumber: 2
   _tileSets: 0
