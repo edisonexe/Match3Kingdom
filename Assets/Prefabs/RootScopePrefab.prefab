@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1593101168383383921}
   - component: {fileID: 5365195677527109637}
+  - component: {fileID: 21563768628092313}
   m_Layer: 0
   m_Name: RootScopePrefab
   m_TagString: Untagged
@@ -52,6 +53,14 @@ MonoBehaviour:
   autoInjectGameObjects: []
   _loadingView: {fileID: 849087351228554062}
   _audioManager: {fileID: 2349261117898294293}
+--- !u!81 &21563768628092313
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028660447672312973}
+  m_Enabled: 1
 --- !u!1 &5600216305629967782
 GameObject:
   m_ObjectHideFlags: 0
