@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using Animations;
+using Audio;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Game.MatchTiles;
@@ -21,6 +22,7 @@ namespace GameStateMachine.States
         private MatchFinder _matchFinder;
         private TilePool _tilePool;
         private GameProgress _gameProgress;
+        private AudioManager _audioManager;
         
         private readonly Transform _parent;
 
@@ -28,7 +30,7 @@ namespace GameStateMachine.States
 
         public RefillGridState(Grid grid, IStateSwitcher stateSwitcher,
             IAnimation animation, MatchFinder matchFinder, TilePool tilePool, 
-            Transform parent, GameProgress gameProgress)
+            Transform parent, GameProgress gameProgress,  AudioManager audioManager)
         {
             _grid = grid;
             _stateSwitcher = stateSwitcher;
@@ -37,6 +39,7 @@ namespace GameStateMachine.States
             _tilePool = tilePool;
             _parent = parent;
             _gameProgress = gameProgress;
+            _audioManager = audioManager;
         }
 
         public async void Enter()
@@ -47,11 +50,11 @@ namespace GameStateMachine.States
             if (_matchFinder.CheckBoardForMatches(_grid))
             {
                 _stateSwitcher.SwitchState<RemoveTilesState>();
-                // play sound
+                _audioManager.PlayMatch();
             }
             else
             {
-                // play sound
+                _audioManager.PlayNoMatch();
                 CheckEndGame();
             }
         }
@@ -84,7 +87,7 @@ namespace GameStateMachine.States
                 }
             }
 
-            // play sound
+            _audioManager.PlayWhoosh();
             await UniTask.Delay(TimeSpan.FromSeconds(0.3f), _cts.IsCancellationRequested);
             _cts.Cancel();
         }
@@ -101,7 +104,7 @@ namespace GameStateMachine.States
                     tile.gameObject.SetActive(true);
                     _grid.SetValue(x, y, tile);
                     _animation.Reveal(tile.gameObject, 0.2f);
-                    // play sound
+                    _audioManager.PlayPop();
                     await UniTask.Delay(TimeSpan.FromSeconds(0.1f), _cts.IsCancellationRequested);
                 }
             }
@@ -113,7 +116,7 @@ namespace GameStateMachine.States
             if(_gameProgress.CheckGoalScore())
                 _stateSwitcher.SwitchState<WinState>();
             else if(_gameProgress.Moves <= 0)
-                _stateSwitcher.SwitchState<LoseState>();
+                _stateSwitcher.SwitchState<DefeatState>();
             else
                 _stateSwitcher.SwitchState<PlayerTurnState>();
         }

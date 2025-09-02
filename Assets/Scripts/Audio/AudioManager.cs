@@ -45,7 +45,7 @@ namespace Audio
         {
             if (_isEnabledSound)
             {
-                _audioMixer.SetFloat("Volume", -6f);
+                _audioMixer.SetFloat("Volume", -8f);
                 _musicSource.Play();
             }
             else
