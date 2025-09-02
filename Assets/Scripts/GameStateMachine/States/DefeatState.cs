@@ -1,18 +1,22 @@
 ﻿using Audio;
+using Game.UI;
 using UnityEngine;
 
 namespace GameStateMachine.States
 {
     public class DefeatState  : IState
     {
-        private AudioManager _audioManager;
+        private EndGamePanelView _endGamePanelView;
 
-        public DefeatState(AudioManager audioManager) => _audioManager = audioManager;
+        public DefeatState(EndGamePanelView endGamePanelView)
+        {
+            _endGamePanelView = endGamePanelView;
+        }
 
         public void Enter()
         {
-            Debug.Log("Entered LoseState");
-            _audioManager.PlayDefeat();
+            Debug.Log("Win State Enter");
+            _endGamePanelView.ShowEndGamePanel(false);
         }
 
         public void Exit()
