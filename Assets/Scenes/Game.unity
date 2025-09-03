@@ -1226,7 +1226,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 663093770}
-  - component: {fileID: 663093769}
   m_Layer: 0
   m_Name: GameSytemScripts
   m_TagString: Untagged
@@ -1234,26 +1233,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &663093769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 663093768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e23e99fd3c234b878141b73ed63b6c61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tilePrefab: {fileID: 8566624406181325886, guid: 715bb8d465679484d97751d34381631f, type: 3}
-  _tileSetConfig: {fileID: 11400000, guid: bbcca3d25e5b30441aa411161e3631da, type: 2}
-  _blankPrefab: {fileID: 8566624406181325886, guid: 932d5f8e79168b74e86f9053c45cc807, type: 3}
-  _blankConfig: {fileID: 11400000, guid: 1ab204904f77ff04bb79788fb2af4755, type: 2}
-  _bgTilePrefab: {fileID: 8933149517516178000, guid: 93db98ad5bfc0904a8916963e694163b, type: 3}
-  _darkTile: {fileID: 21300000, guid: 9bb1dc9a9bfe88b4fb57cd610f5f35f9, type: 3}
-  _lightTile: {fileID: 21300000, guid: 3a81475673def414f8d29fda0ebcca90, type: 3}
-  _fxPrefab: {fileID: 7834839563654822937, guid: d266e306f14de0f418bfbc2c78a870ae, type: 3}
 --- !u!4 &663093770
 Transform:
   m_ObjectHideFlags: 0
@@ -2308,7 +2287,6 @@ MonoBehaviour:
   - {fileID: 1174021366}
   - {fileID: 663093768}
   _gameBoard: {fileID: 1174021367}
-  _loader: {fileID: 663093769}
   _endGamePanelView: {fileID: 332027856}
   _gameProgressView: {fileID: 113353916}
 --- !u!4 &1620420588

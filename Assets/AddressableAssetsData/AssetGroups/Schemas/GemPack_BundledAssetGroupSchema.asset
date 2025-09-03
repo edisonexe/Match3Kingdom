@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5d17a21594effb4e9591490b009e7aa, type: 3}
-  m_Name: MainGroup_BundledAssetGroupSchema
+  m_Name: GemPack_BundledAssetGroupSchema
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: 1202d12eb8774bc479bd1f57cb23cbb4, type: 2}
+  m_Group: {fileID: 11400000, guid: 0c4c53a726d81b7468e242eafed21ca7, type: 2}
   m_InternalBundleIdMode: 1
   m_Compression: 1
   m_IncludeAddressInCatalog: 1

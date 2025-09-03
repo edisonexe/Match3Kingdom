@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: GemPack
+  m_EditorClassIdentifier: 
+  m_GroupName: GemPack
+  m_GUID: 0c8fa70b3875b8d4c879f0ff6916c94a
+  m_SerializeEntries:
+  - m_GUID: 02e5e9d9a4352b04fa814a40ef99a7b8
+    m_Address: Assets/Configs/Tiles/Set2/YellowGem.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 141cbc6ebe5ff0a498011edcfbe2d990
+    m_Address: Assets/Configs/Tiles/Set2/BlueGem.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ff8a30957072f944b9153190d8f4db4
+    m_Address: Assets/Sprites/Set2/OrangeGem.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4fd3090c355faa1408513dc3654eb5df
+    m_Address: Assets/Sprites/Set2/YellowGem.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 64cbde1a840f89c4a9a03aefc20909b4
+    m_Address: Assets/Sprites/Set2/RedGem.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7630c0a3331cdc14c88bbc036c176d3e
+    m_Address: Assets/Configs/Tiles/Set2/OrangeGem.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92f59386e28706c468db42c1aa4c23fd
+    m_Address: Assets/Configs/Tiles/Set2/PurpleGem.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a48cebbe8e665cb4bba3d5e5d84c81d0
+    m_Address: Assets/Sprites/Set2/PurpleGem.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b1f7fc38e2235754388acc7fcae8c1e4
+    m_Address: Assets/Configs/Tiles/Set2/RedGem.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cda585908c9d9df458526f1e4dc34e4e
+    m_Address: Gem
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d7d6050a0019fab4d8f685f228d4acff
+    m_Address: Assets/Sprites/Set2/BlueGem.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 0c5a432e16206a84aa11a0685a4a984a, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d28f991a731512a448cbfd5cf3b40e23, type: 2}
+    - {fileID: 11400000, guid: 76e0693a0620dc643ae8d27df10b0131, type: 2}

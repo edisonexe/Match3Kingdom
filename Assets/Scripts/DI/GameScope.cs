@@ -18,7 +18,6 @@ namespace DI
     public class GameScope : LifetimeScope
     {
         [SerializeField] private GameBoard _gameBoard;
-        [SerializeField] private GameResourcesLoader _loader;
         [SerializeField] private EndGamePanelView _endGamePanelView;
         [SerializeField] private GameProgressView _gameProgressView;
         
@@ -27,10 +26,10 @@ namespace DI
             builder.RegisterEntryPoint<GameEntryPoint>();
             
             builder.RegisterInstance(_gameBoard);
-            builder.RegisterInstance(_loader);
             builder.RegisterInstance(_endGamePanelView);
             builder.RegisterInstance(_gameProgressView);
             
+            builder.Register<GameResourcesLoader>(Lifetime.Singleton);
             builder.Register<FXPool>(Lifetime.Singleton);
             builder.Register<Grid>(Lifetime.Singleton);
             builder.Register<GameDebug>(Lifetime.Singleton);

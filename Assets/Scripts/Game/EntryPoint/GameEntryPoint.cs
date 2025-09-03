@@ -67,14 +67,14 @@ namespace Game.EntryPoint
             _backgroundTilesSetup = backgroundTilesSetup;
         }
 
-        public void Initialize()
+        public async void Initialize()
         {
             _levelConfig = _gameData.CurrentLevel;
             if (_isDebugging)
                 _gameDebug.ShowDebug(_gameBoard.transform);
             _grid.SetupGrid(_levelConfig.Width, _levelConfig.Height);
             _gameProgress.LoadLevelConfig(_levelConfig.GoalScore, _levelConfig.MaxMoves);
-            // await resources
+            await _resourcesLoader.Load();
             _setupCamera.SetCamera(_grid.Width, _grid.Height, false);
             _blankTilesSetup.SetupBlanks(_levelConfig);
             _stateMachine = new StateMachine(_gameBoard, _grid, _animation, _matchFinder, _tilePool, 

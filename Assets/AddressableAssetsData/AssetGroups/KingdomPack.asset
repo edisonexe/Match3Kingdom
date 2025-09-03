@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: KingdomPack
+  m_EditorClassIdentifier: 
+  m_GroupName: KingdomPack
+  m_GUID: 4cac89821ca02364db65462a491235c8
+  m_SerializeEntries:
+  - m_GUID: 13a71d803c6fb10449e95dc5e04e9a2f
+    m_Address: Assets/Configs/Tiles/Set1/Book.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a2aba8784c97a64a9299b12ee4f985c
+    m_Address: Assets/Configs/Tiles/Set1/Coin.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5d6f175b4ce677d4da459b30040c0ba5
+    m_Address: Assets/Sprites/Set1/Sword.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6decc00ccb888a347ba6bd0092ecdf98
+    m_Address: Assets/Sprites/Set1/Potion.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e5d7c7f4bd4fa348a6564f623e168ba
+    m_Address: Assets/Sprites/Set1/Book.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e900e1d7af74254db1df4d81cb0da4e
+    m_Address: Assets/Sprites/Set1/Blank.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2ca150f26b79bf4497ae8b1dbdafb5a
+    m_Address: Assets/Sprites/Set1/Shield.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9b10be712473a44fb9a84159b6df2f3
+    m_Address: Assets/Configs/Tiles/Set1/Shield.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b88bb0bfdf392f141be39a8bd4f43691
+    m_Address: Assets/Sprites/Set1/Coin.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da30725bcc6670a46b56e59150d5de6c
+    m_Address: Kingdom
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2f53fff10b49874caaf09b8e8dfd4a1
+    m_Address: Assets/Configs/Tiles/Set1/Sword.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eea6ec7caca401b4f85c9c753819ec87
+    m_Address: Assets/Configs/Tiles/Set1/Potion.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 0c5a432e16206a84aa11a0685a4a984a, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: f11f91865692e414e8e413877635899d, type: 2}
+    - {fileID: 11400000, guid: 4d1c7d816871ae14a98ecb68cc42ef6d, type: 2}

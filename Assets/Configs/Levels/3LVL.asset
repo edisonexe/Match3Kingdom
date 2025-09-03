@@ -24,6 +24,6 @@ MonoBehaviour:
   _width: 8
   _height: 8
   _goalScore: 1000
-  _maxMoves: 10
+  _maxMoves: 15
   _levelNumber: 3
   _tileSets: 0
