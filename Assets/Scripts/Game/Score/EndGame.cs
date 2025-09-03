@@ -1,5 +1,6 @@
 ﻿using Audio;
 using Data;
+using Save;
 using SceneLoader;
 
 namespace Game.Score
@@ -9,9 +10,12 @@ namespace Game.Score
         private GameData _gameData;
         private AudioManager  _audioManager;
         private IAsyncSceneLoading  _sceneLoading;
-
-        public EndGame(GameData gameData, AudioManager audioManager, IAsyncSceneLoading sceneLoading)
+        private SaveProgress _saveProgress;
+        
+        public EndGame(GameData gameData, AudioManager audioManager, IAsyncSceneLoading sceneLoading, 
+            SaveProgress saveProgress)
         {
+            _saveProgress  = saveProgress;
             _gameData = gameData;
             _audioManager = audioManager;
             _sceneLoading = sceneLoading;
@@ -21,6 +25,7 @@ namespace Game.Score
         {
             if(success && _gameData.CurrentLevel.LevelNumber == _gameData.CurrentLevelIndex)
                 _gameData.OpenNextLevel();
+            _saveProgress.SaveData();
             _audioManager.StopMusic();
             await _sceneLoading.UnloadAsync(Scenes.GAME);
             await _sceneLoading.LoadAsync(Scenes.MENU);
