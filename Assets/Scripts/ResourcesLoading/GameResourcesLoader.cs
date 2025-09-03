@@ -11,6 +11,13 @@ namespace ResourcesLoading
         [SerializeField] private GameObject _blankPrefab;
         [SerializeField] private TileConfig _blankConfig;
         
+        [SerializeField] private GameObject _bgTilePrefab;
+        [SerializeField] private Sprite _darkTile;
+        [SerializeField] private Sprite _lightTile;
+
+        public Sprite DarkTile => _darkTile;
+        public Sprite LightTile => _lightTile;
+        public GameObject BgTilePrefab => _bgTilePrefab;
         public GameObject TilePrefab => _tilePrefab;
         public TileSetConfig TileSetConfig => _tileSetConfig;
         public GameObject BlankPrefab => _blankPrefab;

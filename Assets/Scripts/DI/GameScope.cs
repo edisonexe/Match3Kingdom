@@ -40,6 +40,7 @@ namespace DI
             builder.Register<GameProgress>(Lifetime.Singleton);
             builder.Register<ScoreCalculator>(Lifetime.Singleton);
             builder.Register<EndGame>(Lifetime.Singleton);
+            builder.Register<BackgroundTilesSetup>(Lifetime.Singleton);
         }
     }
 }

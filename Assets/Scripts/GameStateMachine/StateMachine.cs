@@ -9,6 +9,7 @@ using Game.Score;
 using Game.Tiles;
 using Game.UI;
 using GameStateMachine.States;
+using Level;
 using UnityEngine.SocialPlatforms.Impl;
 
 namespace GameStateMachine
@@ -26,9 +27,16 @@ namespace GameStateMachine
         private ScoreCalculator _scoreCalculator;
         private AudioManager _audioManager;
         private EndGamePanelView _endGamePanelView;
+        
+        private BackgroundTilesSetup _backgroundTilesSetup;
+        private BlankTilesSetup _blankTilesSetup;
+        private LevelConfig _levelConfig;
+        
         public StateMachine(GameBoard gameBoard, Grid grid, IAnimation animation, 
             MatchFinder matchFinder, TilePool tilePool, GameProgress gameProgress,
-            ScoreCalculator scoreCalculator, AudioManager audioManager,  EndGamePanelView endGamePanelView)
+            ScoreCalculator scoreCalculator, AudioManager audioManager,  
+            EndGamePanelView endGamePanelView,  BackgroundTilesSetup backgroundTilesSetup,
+            BlankTilesSetup blankTilesSetup, LevelConfig levelConfig)
         {
             _gameBoard = gameBoard;
             _grid = grid;
@@ -39,10 +47,14 @@ namespace GameStateMachine
             _scoreCalculator = scoreCalculator;
             _audioManager = audioManager;
             _endGamePanelView = endGamePanelView;
+            _backgroundTilesSetup = backgroundTilesSetup;
+            _blankTilesSetup = blankTilesSetup;
+            _levelConfig = levelConfig;
+            
             
             _states = new List<IState>()
             {
-                new PrepareState(this, _gameBoard),
+                new PrepareState(this, _gameBoard, _backgroundTilesSetup, _blankTilesSetup, _levelConfig),
                 new PlayerTurnState(_grid, this, _animation, _audioManager),
                 new SwapTilesState(_grid, this, _animation, _matchFinder, _gameProgress, _audioManager),
                 new RemoveTilesState(_grid, this, _animation, _matchFinder, _scoreCalculator, _audioManager),
