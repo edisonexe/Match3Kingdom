@@ -37,80 +37,53 @@ namespace ResourcesLoading
 
         public async UniTask Load()
         {
+            _cts  = new CancellationTokenSource();
             CurrentTileSet = new List<TileConfig>();
-            if (_gameData.CurrentLevel.TileSets == TileSets.Kingdom) 
-                await LoadSet("Kingdom");
-            if (_gameData.CurrentLevel.TileSets == TileSets.Gem) 
-                await LoadSet("Gem");
+            await LoadSet();
             await LoadTilePrefabs();
-            await LoadBlankTile();
+            BlankConfig = await Loader<TileConfig>("BlankTile");
             await LoadBackgroundSprites();
-
+            _cts.Cancel();
         }
 
-        private async UniTask LoadSet(string key)
+        private async UniTask<T> Loader<T>(string key)
+        {
+            var assetHandler = Addressables.LoadAssetAsync<T>(key);
+            var asset = await assetHandler.ToUniTask();
+            return assetHandler.Status == AsyncOperationStatus.Succeeded ? asset : default;
+        }
+        
+        private async UniTask LoadSet()
         {
             _cts  = new CancellationTokenSource();
-            var set = Addressables.LoadAssetAsync<TileSetConfig>(key);
-            await set.ToUniTask();
-            if (set.Status == AsyncOperationStatus.Succeeded)
+            switch (_gameData.CurrentLevel.TileSets)
             {
-                CurrentTileSet = set.Result.Set;
-                // Addressables.Release(set);
+                case(TileSets.Kingdom):
+                    var tileSets = await Loader<TileSetConfig>("Kingdom");
+                    CurrentTileSet = tileSets.Set;
+                    break;
+                case(TileSets.Gem):
+                    tileSets = await Loader<TileSetConfig>("Gem");
+                    CurrentTileSet = tileSets.Set;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
             _cts.Cancel();
         }
 
         private async UniTask LoadTilePrefabs()
         {
-            _cts  = new CancellationTokenSource();
-            var tile = Addressables.LoadAssetAsync<GameObject>("TilePrefab");
-            var bgTile = Addressables.LoadAssetAsync<GameObject>("BackgroundTile");
-            var fx = Addressables.LoadAssetAsync<GameObject>("FXPrefab");
-            await tile.ToUniTask();
-            await bgTile.ToUniTask();
-            await fx.ToUniTask();
-            if (tile.Status == AsyncOperationStatus.Succeeded && bgTile.Status == AsyncOperationStatus.Succeeded && 
-                fx.Status == AsyncOperationStatus.Succeeded)
-            {
-                TilePrefab = tile.Result;
-                BgTilePrefab = bgTile.Result;
-                FXPrefab = fx.Result;
-                // Addressables.Release(tile);
-                // Addressables.Release(bgTile);
-                // Addressables.Release(fx);
-            }
-            _cts.Cancel();
-        }
-        
-        private async UniTask LoadBlankTile()
-        {
-            _cts  = new CancellationTokenSource();
-            var blank = Addressables.LoadAssetAsync<TileConfig>("BlankTile");
-            await blank.ToUniTask();
-            if (blank.Status == AsyncOperationStatus.Succeeded)
-            {
-                BlankConfig = blank.Result;
-                // Addressables.Release(BlankConfig);
-            }
-            _cts.Cancel();
+            TilePrefab = await Loader<GameObject>("TilePrefab");
+            BgTilePrefab = await Loader<GameObject>("BackgroundTile");
+            FXPrefab = await Loader<GameObject>("FXPrefab");
         }
         
         private async UniTask LoadBackgroundSprites()
         {
             _cts  = new CancellationTokenSource();
-            var darkSprite = Addressables.LoadAssetAsync<Sprite>("DarkBG");
-            var lightSprite = Addressables.LoadAssetAsync<Sprite>("LightBG");
-            await darkSprite.ToUniTask();
-            await lightSprite.ToUniTask();
-            if (darkSprite.Status == AsyncOperationStatus.Succeeded && 
-                lightSprite.Status == AsyncOperationStatus.Succeeded)
-            {
-                DarkTile = darkSprite.Result;
-                LightTile = lightSprite.Result;
-                // Addressables.Release(DarkTile);
-                // Addressables.Release(LightTile);
-            }
+            DarkTile = await Loader<Sprite>("DarkBG");
+            LightTile = await Loader<Sprite>("LightBG");
             _cts.Cancel();
         }
         
@@ -125,6 +98,10 @@ namespace ResourcesLoading
             if (_lightHandle is { } lh && lh.IsValid()) Addressables.Release(lh);
         }
 
-        public void Dispose() => ReleaseAll();
+        public void Dispose()
+        {
+            _cts?.Dispose();
+            ReleaseAll();
+        }
     }
 }
