@@ -31,6 +31,7 @@ namespace DI
             builder.RegisterInstance(_endGamePanelView);
             builder.RegisterInstance(_gameProgressView);
             
+            builder.Register<FXPool>(Lifetime.Singleton);
             builder.Register<Grid>(Lifetime.Singleton);
             builder.Register<GameDebug>(Lifetime.Singleton);
             builder.Register<SetupCamera>(Lifetime.Singleton);

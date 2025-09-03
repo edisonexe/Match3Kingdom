@@ -1253,6 +1253,7 @@ MonoBehaviour:
   _bgTilePrefab: {fileID: 8933149517516178000, guid: 93db98ad5bfc0904a8916963e694163b, type: 3}
   _darkTile: {fileID: 21300000, guid: 9bb1dc9a9bfe88b4fb57cd610f5f35f9, type: 3}
   _lightTile: {fileID: 21300000, guid: 3a81475673def414f8d29fda0ebcca90, type: 3}
+  _fxPrefab: {fileID: 7834839563654822937, guid: d266e306f14de0f418bfbc2c78a870ae, type: 3}
 --- !u!4 &663093770
 Transform:
   m_ObjectHideFlags: 0

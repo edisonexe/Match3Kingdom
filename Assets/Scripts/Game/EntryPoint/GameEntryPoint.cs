@@ -12,8 +12,6 @@ using GameStateMachine;
 using Level;
 using ResourcesLoading;
 using SceneLoader;
-using UnityEngine;
-using VContainer;
 using VContainer.Unity;
 using Grid = Game.GridSystem.Grid;
 
@@ -39,7 +37,7 @@ namespace Game.EntryPoint
         private EndGamePanelView  _endGamePanelView;
         private GameResourcesLoader _resourcesLoader;
         private SetupCamera _setupCamera;
-        //FX pool
+        private FXPool _fxPool;
 
         private bool _isDebugging;
         
@@ -47,12 +45,14 @@ namespace Game.EntryPoint
             GameProgress gameProgress, Grid grid, MatchFinder matchFinder, 
             GameBoard gameBoard, GameDebug gameDebug, IAnimation animation, TilePool tilePool, GameData gameData, 
             AudioManager audioManager, IAsyncSceneLoading sceneLoading, EndGamePanelView endGamePanelView, 
-            GameResourcesLoader resourcesLoader, SetupCamera setupCamera, BackgroundTilesSetup backgroundTilesSetup)
+            GameResourcesLoader resourcesLoader, SetupCamera setupCamera, BackgroundTilesSetup backgroundTilesSetup,
+            FXPool fxPool)
         {
             _scoreCalculator = scoreCalculator;
             _blankTilesSetup = blankTilesSetup;
             _gameProgress = gameProgress;
             _grid = grid;
+            _fxPool  = fxPool;
             _matchFinder = matchFinder;
             _gameBoard = gameBoard;
             _gameDebug = gameDebug;
@@ -79,7 +79,7 @@ namespace Game.EntryPoint
             _blankTilesSetup.SetupBlanks(_levelConfig);
             _stateMachine = new StateMachine(_gameBoard, _grid, _animation, _matchFinder, _tilePool, 
                 _gameProgress, _scoreCalculator,  _audioManager, _endGamePanelView, 
-                _backgroundTilesSetup, _blankTilesSetup, _levelConfig);
+                _backgroundTilesSetup, _blankTilesSetup, _levelConfig, _fxPool);
             _sceneLoading.LoadingIsDone(true);
         }
     }
