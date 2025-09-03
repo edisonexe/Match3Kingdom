@@ -20,13 +20,17 @@ namespace DI
         [SerializeField] private GameBoard _gameBoard;
         [SerializeField] private GameResourcesLoader _loader;
         [SerializeField] private EndGamePanelView _endGamePanelView;
+        [SerializeField] private GameProgressView _gameProgressView;
         
         protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterEntryPoint<GameEntryPoint>();
+            
             builder.RegisterInstance(_gameBoard);
             builder.RegisterInstance(_loader);
             builder.RegisterInstance(_endGamePanelView);
+            builder.RegisterInstance(_gameProgressView);
+            
             builder.Register<Grid>(Lifetime.Singleton);
             builder.Register<GameDebug>(Lifetime.Singleton);
             builder.Register<SetupCamera>(Lifetime.Singleton);
